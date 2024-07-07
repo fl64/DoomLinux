@@ -83,7 +83,7 @@ mkdir -p grub
 cd grub
 cat > grub.cfg << EOF
 set default=0
-set timeout=30
+set timeout=0
 
 # Menu Colours
 set menu_color_normal=white/black
@@ -91,12 +91,12 @@ set menu_color_highlight=white/green
 
 root (hd0,0)
 
-menuentry "DoomLinux" {      
+menuentry "DoomLinux" {
     linux  /boot/bzImage
     initrd /boot/rootfs.gz
 }
 EOF
 
 cd $SOURCE_DIR
-grub-mkrescue --compress=xz -o DoomLinux.iso iso 
+grub-mkrescue --compress=xz -o DoomLinux.iso iso
 set +ex
